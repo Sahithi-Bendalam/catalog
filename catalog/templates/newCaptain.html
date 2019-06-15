@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post">
+                    <div class="form-group row">
+                        <h2>Adding New Players</h2>
+                        <label for="name" class="col">Title:</label>
+                        <input type="text" maxlength="50" class="form-control" id="name" name="name"
+                               placeholder="Name of the Player" required>
+                        <br>
+                        <label for="role">Role:</label>
+                        <input type="text" maxlength="50" class="form-control" id="role" name="role"
+                               placeholder="Role of Player" required>
+                        <br>
+                        <label for="role">Runs:</label>
+                        <input type="text" maxlength="50" class="form-control" id="runs" name="runs"
+                               placeholder="Runs by Player" required>
+                        <br>
+
+                        <label for="wickets">Wickets:</label>
+                        <input type="text" maxlength="50" class="form-control" id="wickets" name="wickets"
+                               placeholder="Wickets taken by player" required>
+
+                        <br>
+
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" maxlength="1000" rows="5" id="description" name="description"
+                              placeholder="Details of Player" required></textarea>
+                        <br>
+                        <label for="image">Image:</label>
+                        <input type="url" maxlength="1000" class="form-control" id="image" name="image"
+                               placeholder="Please provide a link of player image" required>
+                        <br>
+                        <label for="team">Team:</label>
+                        <select class="form-control" id="team" name="team" required>
+                            <option value="" selected>Choose Team...</option>
+                            {% for team in teams %}
+                                <option>{{team.name}}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-pencil">Create</span>
+                        </button>
+                        <a href="{{url_for('showCatalog')}}">
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-remove">Cancel</span>
+                            </button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

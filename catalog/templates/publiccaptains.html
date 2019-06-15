@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-3">
+                <br>
+                
+                <img class="img-responsive" src="{{ captain.image }}" alt="{{ captain.name }}">
+                
+            </div>
+            <div class="col-md-9">
+                
+                <h2>{{captain.name}}</h2>
+                <p><b>Role</b>:{{captain.role}}</p>
+                <p><b>Runs</b>:{{captain.runs}}</p>
+                <p><b>Wickets</b>:{{captain.wickets}}</p>
+                <p><b>Description</b>:{{captain.description}}</p>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

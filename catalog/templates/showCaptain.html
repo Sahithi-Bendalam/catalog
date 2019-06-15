@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            
+            <div class="col-md-3">
+                <br>
+                <img class="img-responsive" src="{{ captain.image }}" alt="{{ captain.name }}">
+            </div>
+            <div class="col-md-9">
+                <h2>{{captain.name}}</h2>
+                <p>{{captain.description}}</p>
+                <p>{{captain.role}}</p>
+                <p>{{captain.runs}}</p>
+                <p>{{captain.wickets}}</p>
+                <a href="{{url_for('editCaptain', team_name=captain.team.name, captain_name=captain.name)}}">Edit |</a>
+                <a href="{{url_for('deleteCaptain', team_name=captain.team.name, captain_name=captain.name)}}">Delete</a>
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock %}
